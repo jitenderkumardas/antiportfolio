@@ -7,17 +7,17 @@ export interface Social {
 export const socials: Social[] = [
     {
         label: "GitHub",
-        url: "https://github.com/yourusername",
+        url: "https://github.com/jitenderkumardas",
         icon: "github",
     },
     {
         label: "LinkedIn",
-        url: "https://linkedin.com/in/yourusername",
+        url: "https://linkedin.com/in/jitenderkumardas",
         icon: "linkedin",
     },
     {
         label: "Email",
-        url: "mailto:your@email.com",
+        url: "mailto:rednet.1894@gmail.com",
         icon: "mail",
     },
 ];
