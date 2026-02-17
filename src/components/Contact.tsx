@@ -62,7 +62,7 @@ export default function Contact() {
 
                     {/* CTA */}
                     <a
-                        href="mailto:your@email.com"
+                        href="mailto:rednet.1894@gmail.com"
                         className="inline-block px-8 py-3 bg-accent hover:bg-accent-glow text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-accent/25"
                     >
                         Let&apos;s Collaborate! 🚀
