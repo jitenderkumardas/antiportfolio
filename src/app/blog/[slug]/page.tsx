@@ -25,28 +25,47 @@ export async function generateStaticParams() {
       slug: file.replace(".mdx", ""),
     }));
 }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return { title: "Post Not Found" };
 
+  const baseUrl = "https://antiportfolio-theta.vercel.app";
+  const url = `${baseUrl}/blog/${slug}`;
+
   return {
     title: `${post.meta.title} — Blog`,
     description: post.meta.summary,
     alternates: {
-      canonical: `/blog/${slug}`, // ✅ canonical points to production blog URL
+      canonical: url,
     },
     openGraph: {
       title: post.meta.title,
       description: post.meta.summary,
       type: "article",
-      url: `/blog/${slug}`,
+      url,
+      publishedTime: post.meta.date,
+      authors: ["Jitender Kumar Das"],
     },
     twitter: {
       card: "summary_large_image",
       title: post.meta.title,
       description: post.meta.summary,
+    },
+    other: {
+      "script:ld+json": JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: post.meta.title,
+        description: post.meta.summary,
+        datePublished: post.meta.date,
+        author: {
+          "@type": "Person",
+          name: "Jitender Kumar Das",
+        },
+        keywords: post.meta.tags.join(", "),
+        url,
+      }),
     },
   };
 }
