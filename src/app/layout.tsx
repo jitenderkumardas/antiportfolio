@@ -18,7 +18,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://example.com"),
+  // ✅ Use your actual domain here via env variable
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://antiportfolio-theta.vercel.app"),
   title: "Portfolio — Exploring Code, Security, and Beyond",
   description:
     "Personal portfolio of a developer & security enthusiast. Full-stack development, web app security, CTFs, scripting, and more.",
@@ -31,14 +32,13 @@ export const metadata: Metadata = {
     "web security",
     "Next.js",
   ],
-  authors: [{ name: "Developer" }],
+  authors: [{ name: "Jitender Kumar Das" }], // ✅ personalize author name
   openGraph: {
     title: "Portfolio — Exploring Code, Security, and Beyond",
-    description:
-      "Personal portfolio of a developer & security enthusiast.",
+    description: "Personal portfolio of a developer & security enthusiast.",
     type: "website",
     locale: "en_US",
-    url: "/",
+    url: "/", // relative, Next.js will resolve against metadataBase
   },
   twitter: {
     card: "summary_large_image",
@@ -46,7 +46,13 @@ export const metadata: Metadata = {
     description: "Personal portfolio of a developer & security enthusiast.",
   },
   alternates: {
-    canonical: "/",
+    canonical: "/", // resolved against metadataBase
+  },
+  // ✅ Google Search Console verification tag
+  verification: {
+    google: "SexbTPKOj2d8RpiauOYtyK2w8hVJmC2BM8MZ4linZbg",
+    // You can also add Bing here if you register with Bing Webmaster Tools:
+    // bing: "your-bing-verification-code"
   },
 };
 
