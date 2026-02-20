@@ -8,7 +8,7 @@ export interface GitHubRepo {
     topics: string[];
 }
 
-const GITHUB_USERNAME = "yourusername"; // Replace with your GitHub username
+const GITHUB_USERNAME = "jitenderkumardas"; // Replace with your GitHub username
 
 export async function getFeaturedRepos(): Promise<GitHubRepo[]> {
     try {
