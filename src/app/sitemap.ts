@@ -4,12 +4,9 @@ import { getAllPosts } from "../lib/mdx"; // adjust path if needed
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://antiportfolio-theta.vercel.app"; // replace with your actual domain
+  const baseUrl = "https://antiportfolio-theta.vercel.app";
 
-  // Get all blog posts
-  const posts = getAllPosts();
-
-  // Static sections of your site
+  // Static pages (only actual routes, no #anchors)
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -18,19 +15,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/#about`,
+      url: `${baseUrl}/about`, // ✅ use /about instead of /#about
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/#blog`,
+      url: `${baseUrl}/blog`, // ✅ blog index page
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/#contact`,
+      url: `${baseUrl}/contact`, // ✅ contact page
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.5,
@@ -38,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Blog posts dynamically added
+  const posts = getAllPosts();
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: post.date ? new Date(post.date) : new Date(),
