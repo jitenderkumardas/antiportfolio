@@ -10,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: "/",
             disallow: "/private/",
         },
-        sitemap: "https://example.com/sitemap.xml",
+        sitemap: "https://antiportfolio-theta.vercel.app/sitemap.xml",
     };
 }
